@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookingController;
 /*
 Route::get('/', function () {
     return view('welcome');
@@ -27,3 +28,26 @@ Route::get('manage/product',[App\Http\Controllers\HomeController::class, 'getMan
 
 Route::get('delete/product/{product}',[App\Http\Controllers\HomeController::class, 'getDeleteProduct'])->name('getDeleteProduct');
 Route::get('edit/product/{product}',[App\Http\Controllers\HomeController::class, 'getEditProduct'])->name('getEditProduct');
+
+//salon
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/services', function () {
+    return view('services');
+});
+
+Route::get('/stylists', function () {
+    return view('stylists');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/booking', function () {
+    return view('booking');
+});
+
+Route::post('/submit-booking', [BookingController::class, 'submit']);
